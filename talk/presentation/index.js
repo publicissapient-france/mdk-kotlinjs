@@ -69,11 +69,57 @@ export default class Presentation extends React.Component {
             <ListItem>Improved in 2018 with v1.2.7</ListItem>
           </List>
         </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite>Author</Cite>
-          </BlockQuote>
+
+        <Slide>
+          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
+            Kotlin on Firebase
+          </Heading>
+          <Heading textColor="tertiary" size={3}>
+            is it possible?
+          </Heading>
+        </Slide>
+
+        <Slide>
+          <Heading fit caps lineHeight={1} textColor="secondary">
+            What are Firebase Functions?
+          </Heading>
+          <List textColor="secondary" >
+            <ListItem>Cloud Functions for Firebase lets you automatically <strong>run backend code</strong> in response
+              to events triggered by Firebase features and HTTPS requests.</ListItem>
+            <ListItem>Your code is stored in Google's cloud and runs in a managed environment.</ListItem>
+            <ListItem>There's no need to manage and scale your own servers.</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={3} textColor="secondary">
+           Unfortunately that's only for Node.JS...
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading size={3} textColor="secondary">
+            What if we could use Kotlin.JS to create our own Firebase Functions?
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading fit caps lineHeight={1} textColor="secondary">
+            How achieve that?
+          </Heading>
+          <List textColor="secondary">
+            <ListItem>Create a Firebase Cloud Functions project</ListItem>
+            <ListItem>Get or write your own wrappers</ListItem>
+            <ListItem>Code your very first Kotlin Express program</ListItem>
+            <ListItem>Build it</ListItem>
+            <ListItem>Deploy it</ListItem>
+            <ListItem>Run it</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={3} textColor="secondary">
+            Seems easy, right? Let's see
+          </Heading>
+          <Heading textColor="tertiary" size={3}>
+            It's demo time! Yay!
+          </Heading>
         </Slide>
       </Deck>
     );
