@@ -6,22 +6,17 @@ import logo.*
 import ticker.*
 
 class App : RComponent<RProps, RState>() {
-    override fun RBuilder.render() {
-        div("App-header") {
-            logo()
-            h2 {
-                +"Welcome to React with Kotlin"
-            }
-        }
-        p("App-intro") {
-            +"To get started, edit "
-            code { +"app/App.kt" }
-            +" and save to reload."
-        }
-        p("App-ticker") {
-            ticker()
-        }
+  override fun RBuilder.render() {
+    header {
+      logo()
+      h2 {
+        +"Mdk 2018 by Xebia"
+      }
     }
+    p("App-intro") {
+      +"Welcome! You can browse events to find the one that fits you."
+    }
+  }
 }
 
 fun RBuilder.app() = child(App::class) {}

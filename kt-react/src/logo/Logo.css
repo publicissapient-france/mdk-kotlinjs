@@ -18,8 +18,20 @@
 }
 
 @keyframes Logo-spin {
-  from { transform: rotateY(-90deg); opacity: 1 }
-  50% { transform: rotateY(90deg); opacity: 1 }
-  51% { transform: rotateY(90deg); opacity: 0 }
-  to { transform: rotateY(270deg); opacity: 0 }
+  from {
+    transform: rotateY(-90deg);
+    opacity: 1
+  }
+  50% {
+    transform: rotateY(90deg);
+    opacity: 1
+  }
+  51% {
+    transform: rotateY(90deg);
+    opacity: 0
+  }
+  to {
+    transform: rotateY(270deg);
+    opacity: 0
+  }
 }

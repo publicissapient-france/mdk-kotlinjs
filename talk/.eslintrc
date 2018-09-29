@@ -1,6 +1,6 @@
 ---
 "extends":
-  - "formidable/configurations/es6-react"
+- "formidable/configurations/es6-react"
 
 "rules":
   "indent": [2, 2, {"SwitchCase": 1}]

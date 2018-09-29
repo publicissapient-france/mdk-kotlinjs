@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
+import {AppContainer} from "react-hot-loader";
 import Redbox from "redbox-react";
 
 import Presentation from "./presentation";
 
-const CustomErrorReporter = ({ error }) => <Redbox error={ error } />;
+const CustomErrorReporter = ({error}) => <Redbox error={error}/>;
 
 CustomErrorReporter.propTypes = {
   error: PropTypes.instanceOf(Error).isRequired
@@ -14,16 +14,17 @@ CustomErrorReporter.propTypes = {
 
 ReactDOM.render(
   <AppContainer errorReporter={CustomErrorReporter}>
-    <Presentation />
+    <Presentation/>
   </AppContainer>,
   document.getElementById("root"),
 );
 
 if (module.hot) {
   module.hot.accept("./presentation", () => {
-    const NextPresentation = require("./presentation").default;    ReactDOM.render(
+    const NextPresentation = require("./presentation").default;
+    ReactDOM.render(
       <AppContainer errorReporter={CustomErrorReporter}>
-        <NextPresentation />
+        <NextPresentation/>
       </AppContainer>,
       document.getElementById("root"),
     );
