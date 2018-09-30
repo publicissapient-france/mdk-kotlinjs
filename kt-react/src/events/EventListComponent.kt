@@ -1,11 +1,15 @@
 package events
 
+import kotlinx.css.*
 import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import react.dom.li
-import react.dom.ul
+import styled.css
+import styled.styledUl
+import kotlin.js.Date
+
+data class Event(val id: String, val label: String, val date: Date, val image: String)
 
 interface Props : RProps {
   var events: Array<Event>
@@ -20,9 +24,16 @@ class EventList : RComponent<Props, RState>() {
     } else {
       props.events.toList()
     }
-    ul {
+    styledUl {
+      css {
+        display = Display.flex
+        listStyleType = ListStyleType.none
+        margin(0.px)
+        padding(0.px)
+        justifyContent = JustifyContent.center
+      }
       filteredEvents.forEach {
-        li { +it.label }
+        event(it)
       }
     }
   }

@@ -5,13 +5,17 @@ import alert.alert
 import events.Event
 import events.eventList
 import kotlinx.coroutines.experimental.*
+import kotlinx.css.margin
+import kotlinx.css.px
 import logo.logo
 import react.*
 import react.dom.h2
 import react.dom.header
 import react.dom.p
-import search.searchBar
 import snackbar.snackbar
+import styled.css
+import styled.styledDiv
+import textField.textField
 import kotlin.coroutines.experimental.CoroutineContext
 
 interface AppState : RState {
@@ -58,7 +62,12 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
       +"Browse events to find the one that fits you"
     }
     alert(state.alert)
-    searchBar(::onInputChange)
+    styledDiv {
+      css {
+        margin(10.px)
+      }
+      textField("Event name", ::onInputChange)
+    }
     eventList(state.events, state.prefix)
     snackbar(state.alert, state.snackOpen, ::onSnackClose)
   }
@@ -90,7 +99,7 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
   }
 
   private suspend fun fetchEventsCoroutines(): Array<Event> =
-    Axios.get<Array<Event>>("events1.json").await().data
+    Axios.get<Array<Event>>("https://us-central1-kotlinjs-function.cloudfunctions.net/v1/event").await().data
 
   private fun onInputChange(input: String) {
     setState {
