@@ -4,17 +4,26 @@
 }
 
 .Logo-react {
-  animation: Logo-spin infinite 10s linear;
+  animation: Logo-spin infinite 6s linear;
   height: 100%;
 }
 
 .Logo-kotlin {
   opacity: 0;
-  animation: Logo-spin infinite 10s 5s linear;
+  animation: Logo-spin infinite 6s 2s linear;
   height: 72%;
   position: absolute;
   top: 14%;
   right: 24%;
+}
+
+.Logo-xebia {
+  opacity: 0;
+  animation: Logo-spin infinite 6s 4s linear;
+  height: 70%;
+  position: absolute;
+  top: 14%;
+  right: -20%;
 }
 
 @keyframes Logo-spin {
@@ -22,11 +31,11 @@
     transform: rotateY(-90deg);
     opacity: 1
   }
-  50% {
+  33% {
     transform: rotateY(90deg);
     opacity: 1
   }
-  51% {
+  34% {
     transform: rotateY(90deg);
     opacity: 0
   }
