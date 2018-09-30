@@ -11,12 +11,14 @@ import react.dom.h2
 import react.dom.header
 import react.dom.p
 import search.searchBar
+import snackbar.snackbar
 import kotlin.coroutines.experimental.CoroutineContext
 
 interface AppState : RState {
   var events: Array<Event>
   var prefix: String
   var alert: String
+  var snackOpen: Boolean
 }
 
 class App : RComponent<RProps, AppState>(), CoroutineScope {
@@ -30,6 +32,7 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
     events = emptyArray()
     prefix = ""
     alert = ""
+    snackOpen = false
   }
 
   override fun componentDidMount() {
@@ -57,6 +60,7 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
     alert(state.alert)
     searchBar(::onInputChange)
     eventList(state.events, state.prefix)
+    snackbar(state.alert, state.snackOpen, ::onSnackClose)
   }
 
 //  private fun fetchEvents() {
@@ -80,18 +84,21 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
     } catch (t: Throwable) {
       setState {
         alert = t.toString()
+        snackOpen = true
       }
     }
   }
 
   private suspend fun fetchEventsCoroutines(): Array<Event> =
-    Axios.get<Array<Event>>("events.json").await().data
+    Axios.get<Array<Event>>("events1.json").await().data
 
   private fun onInputChange(input: String) {
     setState {
       prefix = input
     }
   }
+
+  private fun onSnackClose(): Any = setState { snackOpen = false }
 }
 
 fun RBuilder.app() = child(App::class) {}
