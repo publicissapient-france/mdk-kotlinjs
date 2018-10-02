@@ -1,0 +1,25 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "cli:event:create": "curl -X PUT https://us-central1-kotlinjs-function.cloudfunctions.net/v1/event -H 'Content-Type: application/x-www-form-urlencoded' -d 'label=xebicon' -d 'date=2018-11-19T23:00:00.000Z' -d 'image=https://xebicon.fr/wp-content/uploads/2018/06/logo-head.png'",
+    "cli:event:list": "curl https://us-central1-kotlinjs-function.cloudfunctions.net/v1/event --silent | jq",
+    "delete-invalid-line": "sed -i '/importsForInline/d' ./functions/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.5",
+    "kotlin": "^1.2.71"
+  },
+  "private": true,
+  "devDependencies": {
+    "npm-check": "^5.9.0"
+  }
+}
