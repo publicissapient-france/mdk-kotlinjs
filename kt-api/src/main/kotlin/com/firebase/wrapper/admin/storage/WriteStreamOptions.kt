@@ -1,4 +1,4 @@
-package com.firebase.wrappers.admin.storage
+package com.firebase.wrapper.admin.storage
 
 data class WriteStreamOptions(
         val gzip: Boolean? = null,

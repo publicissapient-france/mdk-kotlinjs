@@ -1,8 +1,8 @@
-package com.firebase.wrappers.admin
+package com.firebase.wrapper.admin
 
-import com.firebase.wrappers.admin.database.Database
-import com.firebase.wrappers.admin.firestore.Firestore
-import com.firebase.wrappers.admin.storage.Storage
+import com.firebase.wrapper.admin.database.Database
+import com.firebase.wrapper.admin.firestore.Firestore
+import com.firebase.wrapper.admin.storage.Storage
 
 @JsModule("firebase-admin")
 external object Admin {

@@ -1,4 +1,4 @@
-package com.firebase.wrappers.functions
+package com.firebase.wrapper.functions
 
 @JsModule("firebase-functions")
 external object Functions {

@@ -1,6 +1,6 @@
-package com.firebase.wrappers.admin
+package com.firebase.wrapper.admin
 
-import com.firebase.wrappers.admin.database.DeltaSnapshot
+import com.firebase.wrapper.admin.database.DeltaSnapshot
 
 external interface Event<T> {
     val data: DeltaSnapshot<T>

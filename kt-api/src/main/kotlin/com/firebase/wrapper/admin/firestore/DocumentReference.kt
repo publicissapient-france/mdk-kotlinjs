@@ -1,5 +1,6 @@
-package com.firebase.wrappers.admin.firestore
+package com.firebase.wrapper.admin.firestore
 
+import com.firebase.wrapper.admin.firestore.CollectionReference
 import kotlin.js.Promise
 
 external interface DocumentReference {

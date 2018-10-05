@@ -4,11 +4,12 @@ import com.expressjs.wrapper.Cors
 import com.expressjs.wrapper.Express
 import com.expressjs.wrapper.Request
 import com.expressjs.wrapper.Response
-import com.firebase.wrappers.admin.Admin
-import com.firebase.wrappers.admin.firestore.DocumentData
-import com.firebase.wrappers.admin.firestore.Firestore
-import com.firebase.wrappers.admin.firestore.get
-import com.firebase.wrappers.functions.Functions
+import com.firebase.wrapper.admin.Admin
+import com.firebase.wrapper.admin.firestore.DocumentData
+import com.firebase.wrapper.admin.firestore.Firestore
+import com.firebase.wrapper.admin.firestore.get
+import com.firebase.wrapper.admin.firestore.FireStoreSettings
+import com.firebase.wrapper.functions.Functions
 import kotlin.js.Date
 
 external val exports: dynamic
@@ -54,8 +55,10 @@ fun main(args: Array<String>) {
 
     Admin.initializeApp(Functions.config().firebase)
     val db = Admin.firestore()
+    val settings = FireStoreSettings(timestampsInSnapshots = true);
+    db.settings(settings);
 
-    val getEvents: (Request, Response) -> Unit = { req, res ->
+  val getEvents: (Request, Response) -> Unit = { req, res ->
         val params = req.params.unsafeCast<Params>()
         val eventId = params.id
         if (eventId != undefined) getEventById(db, eventId, res)

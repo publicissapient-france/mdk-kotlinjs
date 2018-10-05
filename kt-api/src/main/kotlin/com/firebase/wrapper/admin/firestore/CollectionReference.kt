@@ -1,6 +1,7 @@
-package com.firebase.wrappers.admin.firestore
+package com.firebase.wrapper.admin.firestore
 
-import com.firebase.wrapper.admin.firestore.QuerySnapshot
+import com.firebase.wrapper.admin.firestore.DocumentData
+import com.firebase.wrapper.admin.firestore.DocumentReference
 import kotlin.js.Promise
 
 external interface CollectionReference {

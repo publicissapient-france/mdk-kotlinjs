@@ -1,4 +1,4 @@
-package com.firebase.wrappers.admin
+package com.firebase.wrapper.admin
 
 data class Config(
         val type: String,

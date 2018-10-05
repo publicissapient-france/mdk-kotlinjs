@@ -1,3 +1,3 @@
-package com.firebase.wrappers.admin.storage
+package com.firebase.wrapper.admin.storage
 
 data class BucketFileOptions(val generation: String? = undefined)

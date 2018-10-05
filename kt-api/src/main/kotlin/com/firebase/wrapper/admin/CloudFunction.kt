@@ -1,3 +1,3 @@
-package com.firebase.wrappers.admin
+package com.firebase.wrapper.admin
 
 external interface CloudFunction

@@ -1,8 +1,8 @@
-package com.firebase.wrappers.admin.database
+package com.firebase.wrapper.admin.database
 
-import com.firebase.wrappers.admin.CloudFunction
-import com.firebase.wrappers.admin.Event
-import com.firebase.wrappers.admin.FirebaseError
+import com.firebase.wrapper.admin.CloudFunction
+import com.firebase.wrapper.admin.Event
+import com.firebase.wrapper.admin.FirebaseError
 import kotlin.js.Promise
 
 

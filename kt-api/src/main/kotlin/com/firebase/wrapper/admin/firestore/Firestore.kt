@@ -1,5 +1,6 @@
-package com.firebase.wrappers.admin.firestore
+package com.firebase.wrapper.admin.firestore
 
 external interface Firestore {
     fun collection(collectionPath: String): CollectionReference
+    fun settings(settings: FireStoreSettings)
 }

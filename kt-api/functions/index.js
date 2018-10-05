@@ -1,5 +1,6 @@
 (function (_, Kotlin, $module$express, $module$cors, $module$firebase_admin, $module$firebase_functions) {
   'use strict';
+  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var ensureNotNull = Kotlin.ensureNotNull;
   var throwCCE = Kotlin.throwCCE;
   var Unit = Kotlin.kotlin.Unit;
@@ -96,6 +97,8 @@
     app.use(new $module$cors());
     $module$firebase_admin.initializeApp($module$firebase_functions.config().firebase);
     var db = $module$firebase_admin.firestore();
+    var settings = new FireStoreSettings(true);
+    db.settings(settings);
     var getEvents = main$lambda(db);
     var createEvent = main$lambda_0(db);
     app.get('/event/:id?', getEvents);
@@ -361,12 +364,39 @@
   FirebaseAppOptions.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.credential, other.credential) && Kotlin.equals(this.databaseAuthVariableOverride, other.databaseAuthVariableOverride) && Kotlin.equals(this.databaseURL, other.databaseURL) && Kotlin.equals(this.storageBucket, other.storageBucket) && Kotlin.equals(this.projectId, other.projectId)))));
   };
-  var get = defineInlineFunction('index.com.firebase.wrappers.admin.firestore.get_tt04a2$', function ($receiver, field) {
+  var get = defineInlineFunction('index.com.firebase.wrapper.admin.firestore.get_543c45$', function ($receiver, field) {
     return $receiver[field];
   });
-  var set = defineInlineFunction('index.com.firebase.wrappers.admin.firestore.set_pywg9r$', function ($receiver, field, value) {
+  var set = defineInlineFunction('index.com.firebase.wrapper.admin.firestore.set_52d77k$', function ($receiver, field, value) {
     $receiver[field] = value;
   });
+  function FireStoreSettings(timestampsInSnapshots) {
+    if (timestampsInSnapshots === void 0)
+      timestampsInSnapshots = undefined;
+    this.timestampsInSnapshots = timestampsInSnapshots;
+  }
+  FireStoreSettings.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'FireStoreSettings',
+    interfaces: []
+  };
+  FireStoreSettings.prototype.component1 = function () {
+    return this.timestampsInSnapshots;
+  };
+  FireStoreSettings.prototype.copy_1v8dbw$ = function (timestampsInSnapshots) {
+    return new FireStoreSettings(timestampsInSnapshots === void 0 ? this.timestampsInSnapshots : timestampsInSnapshots);
+  };
+  FireStoreSettings.prototype.toString = function () {
+    return 'FireStoreSettings(timestampsInSnapshots=' + Kotlin.toString(this.timestampsInSnapshots) + ')';
+  };
+  FireStoreSettings.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.timestampsInSnapshots) | 0;
+    return result;
+  };
+  FireStoreSettings.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && Kotlin.equals(this.timestampsInSnapshots, other.timestampsInSnapshots))));
+  };
   function BucketFileOptions(generation) {
     if (generation === void 0)
       generation = undefined;
@@ -455,7 +485,7 @@
   WriteStreamOptions.prototype.component9 = function () {
     return this.validation;
   };
-  WriteStreamOptions.prototype.copy_jiahnr$ = function (gzip, metadata, offset, predefinedAct, private_0, public_0, resumable, uri, validation) {
+  WriteStreamOptions.prototype.copy_txobiu$ = function (gzip, metadata, offset, predefinedAct, private_0, public_0, resumable, uri, validation) {
     return new WriteStreamOptions(gzip === void 0 ? this.gzip : gzip, metadata === void 0 ? this.metadata : metadata, offset === void 0 ? this.offset : offset, predefinedAct === void 0 ? this.predefinedAct : predefinedAct, private_0 === void 0 ? this.private : private_0, public_0 === void 0 ? this.public : public_0, resumable === void 0 ? this.resumable : resumable, uri === void 0 ? this.uri : uri, validation === void 0 ? this.validation : validation);
   };
   WriteStreamOptions.prototype.toString = function () {
@@ -518,6 +548,7 @@
   FileMetaData.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.contentType, other.contentType) && Kotlin.equals(this.metadata, other.metadata) && Kotlin.equals(this.cacheControl, other.cacheControl)))));
   };
+  // $$importsForInline$$.index = _;
   var package$com = _.com || (_.com = {});
   var package$api = package$com.api || (package$com.api = {});
   var package$event = package$api.event || (package$api.event = {});
@@ -527,13 +558,14 @@
   package$event.Params = Params;
   package$event.Message = Message;
   var package$firebase = package$com.firebase || (package$com.firebase = {});
-  var package$wrappers = package$firebase.wrappers || (package$firebase.wrappers = {});
-  var package$admin = package$wrappers.admin || (package$wrappers.admin = {});
+  var package$wrapper = package$firebase.wrapper || (package$firebase.wrapper = {});
+  var package$admin = package$wrapper.admin || (package$wrapper.admin = {});
   package$admin.Config = Config;
   package$admin.FirebaseAppOptions = FirebaseAppOptions;
   var package$firestore = package$admin.firestore || (package$admin.firestore = {});
-  package$firestore.get_tt04a2$ = get;
-  package$firestore.set_pywg9r$ = set;
+  package$firestore.get_543c45$ = get;
+  package$firestore.set_52d77k$ = set;
+  package$firestore.FireStoreSettings = FireStoreSettings;
   var package$storage = package$admin.storage || (package$admin.storage = {});
   package$storage.BucketFileOptions = BucketFileOptions;
   package$storage.WriteStreamOptions = WriteStreamOptions;
