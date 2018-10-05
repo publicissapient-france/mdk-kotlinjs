@@ -56,7 +56,7 @@ export default class Presentation extends React.Component {
         <Slide>
           <Layout>
             <Fill>
-              <RoundImage src={'https://pbs.twimg.com/profile_images/812379001989824513/R761-8An_400x400.jpg'}
+              <RoundImage src={'https://pbs.twimg.com/profile_images/1048231075284242434/KvJaS94d_400x400.jpg'}
                           height={400}/>
               <Text textColor='secondary' textSize={24}>Julien</Text>
               <Text textColor='tertiary' textSize={24}>@jsmadja</Text>
