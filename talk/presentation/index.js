@@ -119,6 +119,9 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide>
+            <Image src={'https://d3nmt5vlzunoa1.cloudfront.net/kotlin/files/2017/11/MPP.png'}/>
+        </Slide>
+        <Slide>
           <Heading fit caps lineHeight={1} textColor='secondary'>
             How achieve that?
           </Heading>
@@ -130,6 +133,36 @@ export default class Presentation extends React.Component {
             <ListItem>Deploy it</ListItem>
             <ListItem>Run it</ListItem>
           </List>
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Wrappers</Heading>
+          <Heading textColor='tertiary' size={3}>
+            What
+          </Heading>
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Wrappers</Heading>
+          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-save.kt'))}
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Gradle - from(kt).to(js)</Heading>
+          {codePan(15, 'groovy', require('raw-loader!../assets/api-gradle-example'))}
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Express - routing</Heading>
+          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express.kt'))}
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Express - data transfert object</Heading>
+          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-dataclass.kt'))}
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Express - params</Heading>
+          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-create.kt'))}
+        </Slide>
+        <Slide bgColor={'secondary'}>
+          <Heading size={3} textColor='primary'>Express - datastore</Heading>
+          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-save.kt'))}
         </Slide>
         {demoSlide}
         <Slide>
