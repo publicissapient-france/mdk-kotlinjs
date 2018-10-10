@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-npm run build # It will build application in build directory
+npm run build
 
-npm i -D firebase-tools # Once, install Firebase
+npm i -D firebase-tools
 
-npx firebase login # Once, login to your Firebase account
+npx firebase login
 
-npx firebase init # Once, init Firebase project
+npx firebase init
 
-npx firebase deploy # Anytime you want to deploy to Firebase Hosting
-
-# That's all folks! 🚀
+npx firebase deploy

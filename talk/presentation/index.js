@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { CodePane, Deck, Fill, Heading, Image, Layout, List, ListItem, Notes, Slide, Text } from 'spectacle';
+import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 
-require('normalize.css');
-require('prismjs/components/prism-kotlin');
-require('prismjs/components/prism-groovy');
-require('prismjs/components/prism-bash');
+import 'normalize.css';
+import 'prismjs/components/prism-kotlin';
+import 'prismjs/components/prism-groovy';
+import 'prismjs/components/prism-bash';
 
 const theme = createTheme({
   primary: '#f1f3f4',
@@ -24,6 +25,27 @@ const RoundImage = styled(Image)`
   margin: 0 auto;
 `;
 
+const SexyCodeSlide = styled(CodeSlide)`
+  h1 {
+    border: none !important;
+    color: #2c374c !important;
+  }
+`;
+
+const WideSexyCodeSlide = styled(SexyCodeSlide)`
+  max-width: 85vw;
+  pre {
+    transform: translateY(-85px);
+  }
+`;
+
+const WideSlide = styled(Slide)`
+  max-width: 85vw;
+  pre {
+    border-radius: 3px;
+  }
+`;
+
 export default class Presentation extends React.Component {
   render() {
     const demoSlide = (<Slide>
@@ -37,9 +59,8 @@ export default class Presentation extends React.Component {
 
     const codePan = (textSize, lang, source) =>
       (<CodePane
-        style={'.prism-code { border-radius: 5px; }'}
         textSize={textSize}
-        theme={'coy'}
+        theme={'light'}
         lang={lang}
         source={source}/>);
 
@@ -176,13 +197,23 @@ export default class Presentation extends React.Component {
             <ListItem><b>React</b> application</ListItem>
           </List>
         </Slide>
-        <Slide>
+        <Slide maxHeight={100} maxWidth={100}>
           <Heading>Kotlinx.html</Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
+        <WideSlide bgColor={'secondary'}>
           <Heading margin={50} size={3} textColor="primary">Gradle</Heading>
-          {codePan(24, 'groovy', require('raw-loader!../assets/htmlx-gradle-example.kt'))}
-        </Slide>
+          {codePan(24, 'groovy', require('raw-loader!../assets/htmlx-gradle-example.gradle'))}
+        </WideSlide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="groovy"
+          code={require('raw-loader!../assets/htmlx-gradle-example.gradle')}
+          ranges={[
+            { loc: [0, 10], title: 'Gradle' },
+            { loc: [5, 7] },
+            { loc: [7, 8] },
+            { loc: [0, 4] }
+          ]}/>
         <Slide bgColor={'secondary'}>
           {codePan(17, 'kotlin', require('raw-loader!../assets/htmlx-example.kt'))}
         </Slide>
@@ -372,10 +403,27 @@ export default class Presentation extends React.Component {
             <ListItem>inline-style-prefixer</ListItem>
           </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          {codePan(24, 'bash', require('raw-loader!../assets/kt-styled-npm.sh'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
+        <SexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          code={require('raw-loader!../assets/kt-styled-npm.sh')}
+          ranges={[
+            { loc: [0, 6], title: 'Kotlin with style 💃' },
+            { loc: [2, 3] },
+            { loc: [4, 5] }
+          ]}/>
+        <SexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/styled.kt')}
+          ranges={[
+            { loc: [0, 17], title: 'Kotlin with style 💃' },
+            { loc: [4, 5] },
+            { loc: [6, 7] },
+            { loc: [8, 9] },
+            { loc: [5, 12] },
+            { loc: [0, 3] }
+          ]}>
           <Notes>
             <p>La plupart des propriétés CSS sont supportés sinon possible ajout à la main <code>put("key",
               "val")</code>
@@ -383,8 +431,8 @@ export default class Presentation extends React.Component {
             <p>Possibilité de créer des feuilles de style en Kotlin et ainsi utiliser des sélecteurs <code>hover,
               etc.</code></p>
           </Notes>
-          {codePan(24, 'kotlin', require('raw-loader!../assets/styled.kt'))}
-        </Slide>
+          {/*{codePan(24, 'kotlin', require('raw-loader!../assets/styled.kt'))}*/}
+        </SexyCodeSlide>
         {demoSlide}
         <Slide>
           <Heading size={2} caps textColor="secondary">
@@ -394,9 +442,18 @@ export default class Presentation extends React.Component {
             Hello World Firebase Hosting 🔥
           </Heading>
         </Slide>
-        <Slide>
-          {codePan(24, 'bash', require('raw-loader!../assets/firebase-hosting.sh'))}
-        </Slide>
+        <SexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          code={require('raw-loader!../assets/firebase-hosting.sh')}
+          ranges={[
+            { loc: [0, 14], title: 'Get Firebase working' },
+            { loc: [0, 3] },
+            { loc: [4, 5] },
+            { loc: [6, 7] },
+            { loc: [8, 9] },
+            { loc: [10, 11] }
+          ]}/>
         <Slide>
           <Heading size={2} caps textColor="secondary">
             Let's code our next React app in Kotlin?

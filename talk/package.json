@@ -18,9 +18,10 @@
     "normalize.css": "7.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-emotion": "latest",
     "spectacle": "^5.2.0",
-    "spectacle-renderer": "^0.0.3",
-    "react-emotion": "latest"
+    "spectacle-code-slide": "^0.5.2",
+    "spectacle-renderer": "^0.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
