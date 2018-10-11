@@ -50,6 +50,14 @@ private fun getEventById(db: Firestore, eventId: String?, res: Response) {
 
 fun main(args: Array<String>) {
 
+    val app = Express()
+    app.use(Cors())
+
+    Admin.initializeApp(Functions.config().firebase)
+    val db = Admin.firestore()
+    val settings = FireStoreSettings(timestampsInSnapshots = true);
+    db.settings(settings);
+
     val getEvents: (Request, Response) -> Unit = { req, res ->
         val params = req.params.unsafeCast<Params>()
         val eventId = params.id
@@ -64,14 +72,6 @@ fun main(args: Array<String>) {
                 .then({ ref -> res.status(201).json(Event(ref.id, inputEvent.label, inputEvent.time, inputEvent.date, inputEvent.image)) })
                 .catch({ error -> res.status(500).json(error) })
     }
-
-    val app = Express()
-    app.use(Cors())
-
-    Admin.initializeApp(Functions.config().firebase)
-    val db = Admin.firestore()
-    val settings = FireStoreSettings(timestampsInSnapshots = true);
-    db.settings(settings);
 
     app.get("/event/:id?", getEvents)
     app.put("/event", createEvent)

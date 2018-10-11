@@ -169,6 +169,15 @@ export default class Presentation extends React.Component {
           <Heading margin={50} size={3} textColor="primary">Wrappers</Heading>
           {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-save.kt'))}
         </Slide>
+        <Slide>
+          <Heading size={3} textColor='primary'>Wrappers</Heading>
+          <List textColor='secondary'>
+            <ListItem><strong>dynamic</strong> references a dynamic type in Kotlin/JS code</ListItem>
+            <ListItem><strong>external</strong> marks a declaration as implemented not in Kotlin (accessible through JNI or in JavaScript)</ListItem>
+          </List>
+
+        </Slide>
+
         <Slide bgColor={'secondary'}>
           <Heading size={3} textColor="primary">Gradle - from(kt).to(js)</Heading>
           {codePan(15, 'groovy', require('raw-loader!../assets/api-gradle-example'))}
