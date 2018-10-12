@@ -22,7 +22,6 @@ private fun findEventById(db: Firestore, eventId: String?) = db.collection("even
 private fun saveEvent(db: Firestore, inputEvent: Event) = db.collection("event").add(JSON.parse(JSON.stringify(inputEvent)))
 // -- Database CRUD --
 
-
 // -- HTTP Response Builders --
 private fun getAllEvents(db: Firestore, res: Response) {
     findEvents(db)

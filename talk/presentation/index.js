@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import { CodePane, Deck, Fill, Heading, Image, Layout, List, ListItem, Notes, Slide, Text } from 'spectacle';
+import {CodePane, Deck, Fill, Heading, Image, Layout, List, ListItem, Notes, Slide, Text} from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -123,14 +123,12 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
         <Slide>
-          <Heading fit caps lineHeight={1} textColor="secondary">
-            What are Firebase Functions?
-          </Heading>
-          <List textColor="secondary">
-            <ListItem>Cloud Functions for Firebase lets you automatically <strong>run backend code</strong> in response
-              to events triggered by Firebase features and HTTPS requests.</ListItem>
-            <ListItem>Your code is stored in Google's cloud and runs in a managed environment.</ListItem>
-            <ListItem>There's no need to manage and scale your own servers.</ListItem>
+          <Heading size={3} textColor="secondary">What are Firebase Functions?</Heading>
+          <List textColor="tertiary">
+            <ListItem>Backend code responds to events triggered by Firebase features and HTTPS requests</ListItem>
+            <ListItem>Code stored in Google's cloud</ListItem>
+            <ListItem>Runs in a managed environment</ListItem>
+            <ListItem>No need to manage and scale servers</ListItem>
           </List>
         </Slide>
         <Slide>
@@ -147,11 +145,9 @@ export default class Presentation extends React.Component {
           <Image src={'https://d3nmt5vlzunoa1.cloudfront.net/kotlin/files/2017/11/MPP.png'}/>
         </Slide>
         <Slide>
-          <Heading fit caps lineHeight={1} textColor="secondary">
-            How achieve that?
-          </Heading>
-          <List ordered textColor="secondary">
-            <ListItem>Create a Firebase Cloud Functions project</ListItem>
+          <Heading textColor="secondary">How achieve that?</Heading>
+          <List ordered textColor="tertiary">
+            <ListItem>Create a Firebase Functions project</ListItem>
             <ListItem>Get or write your own wrappers</ListItem>
             <ListItem>Code your very first Kotlin Express program</ListItem>
             <ListItem>Build it</ListItem>
@@ -159,45 +155,150 @@ export default class Presentation extends React.Component {
             <ListItem>Run it</ListItem>
           </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Wrappers</Heading>
-          <Heading textColor="tertiary" size={3}>
-            What
-          </Heading>
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading margin={50} size={3} textColor="primary">Wrappers</Heading>
-          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-save.kt'))}
-        </Slide>
+
         <Slide>
-          <Heading size={3} textColor='primary'>Wrappers</Heading>
-          <List textColor='secondary'>
-            <ListItem><strong>dynamic</strong> references a dynamic type in Kotlin/JS code</ListItem>
-            <ListItem><strong>external</strong> marks a declaration as implemented not in Kotlin (accessible through JNI or in JavaScript)</ListItem>
+          <Heading textColor="secondary">What do we need?</Heading>
+          <List ordered textColor="tertiary">
+            <ListItem><strong>A Gradle config file</strong></ListItem>
           </List>
-
         </Slide>
 
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Gradle - from(kt).to(js)</Heading>
-          {codePan(15, 'groovy', require('raw-loader!../assets/api-gradle-example'))}
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang='groovy'
+          code={require('raw-loader!../../kt-api/build.gradle')}
+          ranges={[
+            {loc: [1, 2], title: 'build.gradle'},
+            {loc: [6, 9], title: 'build.gradle'},
+            {loc: [11, 12], title: 'build.gradle'},
+            {loc: [17, 21], title: 'build.gradle'},
+            {loc: [22, 28], title: 'build.gradle'}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <Slide>
+          <Heading textColor="secondary">What do we need?</Heading>
+          <List ordered textColor="tertiary">
+            <ListItem>A Gradle config file</ListItem>
+            <ListItem><strong>A database</strong></ListItem>
+          </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Express - routing</Heading>
-          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express.kt'))}
+
+        <Slide>
+          <Heading textColor="secondary">Firestore</Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Express - data transfert object</Heading>
-          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-dataclass.kt'))}
+
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/api-express-save.kt')}
+          ranges={[
+            {loc: [0, 3], title: 'Firestore Wrappers'}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="typescript"
+          code={require('raw-loader!../../kt-api/node_modules/firebase-admin/lib/index.d.ts')}
+          ranges={[
+            {loc: [57, 65], title: 'firebase-admin/index.d.ts'}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../../kt-api/src/main/kotlin/com/firebase/wrapper/admin/Admin.kt')}
+          ranges={[
+            {loc: [0, 15], title: 'Admin.kt'},
+            {loc: [6, 7], title: 'Admin.kt'},
+            {loc: [12, 13]}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../../kt-api/src/main/kotlin/com/firebase/wrapper/admin/firestore/Firestore.kt')}
+          ranges={[
+            {loc: [0, 6], title: 'Firestore.kt'}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="javascript"
+          code={require('raw-loader!../../kt-api/functions/index.js')}
+          ranges={[
+            {loc: [575, 576], title: 'kt-api/index.js'}
+          ]}
+        >
+        </WideSexyCodeSlide>
+
+        <Slide>
+          <Heading textColor='secondary'>Keywords</Heading>
+          <List textColor='tertiary'>
+            <ListItem><strong>dynamic</strong> references a dynamic type in Kotlin/JS code</ListItem>
+            <ListItem><strong>external</strong> marks a declaration as implemented not in Kotlin (accessible through JNI
+              or in JavaScript)</ListItem>
+          </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Express - params</Heading>
-          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-create.kt'))}
+
+        <Slide>
+          <Heading textColor="secondary">What do we need?</Heading>
+          <List ordered textColor="tertiary">
+            <ListItem>A Gradle config file</ListItem>
+            <ListItem>A database</ListItem>
+            <ListItem><strong>A Web Framework</strong></ListItem>
+          </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Heading size={3} textColor="primary">Express - datastore</Heading>
-          {codePan(30, 'kotlin', require('raw-loader!../assets/api-express-save.kt'))}
+
+        <Slide>
+          <Heading textColor="secondary">To do what?</Heading>
+          <List ordered textColor="tertiary">
+            <ListItem><strong>Store</strong> new events in Database</ListItem>
+            <ListItem><strong>List</strong> all stored events</ListItem>
+            <ListItem><strong>Get</strong> detailed informations about an event</ListItem>
+          </List>
         </Slide>
+
+        <WideSexyCodeSlide bgColor={'primary'}
+                           lang='kotlin' code={require('raw-loader!../assets/api-express.kt')}
+                           ranges={[
+                             {loc: [0, 2], title: 'index.kt'},
+                             {loc: [8, 12], title: 'index.kt'},
+                           ]}
+        >
+        </WideSexyCodeSlide>
+        <WideSexyCodeSlide bgColor={'primary'}
+                           lang='kotlin'
+                           code={require('raw-loader!../assets/api-express-dataclass.kt')}
+                           ranges={[
+                             {loc: [0, 1], title: 'EventInput'},
+                             {loc: [1, 2], title: 'Event'},
+                             {loc: [2, 3], title: 'Params'},
+                             {loc: [3, 4], title: 'Message'},
+                           ]}>
+        </WideSexyCodeSlide>
+        <WideSexyCodeSlide bgColor={'primary'}
+                           lang='kotlin'
+                           code={require('raw-loader!../assets/api-express-create.kt')}
+                           ranges={[
+                             {loc: [0, 23], title: 'CreateEvent'},
+                             {loc: [2, 9], title: 'CreateEvent'},
+                             {loc: [9, 10], title: 'CreateEvent'},
+                             {loc: [9, 19], title: 'CreateEvent'},
+                             {loc: [20, 21], title: 'CreateEvent'},
+                           ]
+                           }
+        >
+        </WideSexyCodeSlide>
         {demoSlide}
         <Slide>
           <Heading size={3} textColor="secondary">Can I do frontend also with Kotlin?</Heading>
@@ -218,10 +319,10 @@ export default class Presentation extends React.Component {
           lang="groovy"
           code={require('raw-loader!../assets/htmlx-gradle-example.gradle')}
           ranges={[
-            { loc: [0, 10], title: 'Gradle' },
-            { loc: [5, 7] },
-            { loc: [7, 8] },
-            { loc: [0, 4] }
+            {loc: [0, 10], title: 'Gradle'},
+            {loc: [5, 7]},
+            {loc: [7, 8]},
+            {loc: [0, 4]}
           ]}/>
         <Slide bgColor={'secondary'}>
           {codePan(17, 'kotlin', require('raw-loader!../assets/htmlx-example.kt'))}
@@ -417,21 +518,21 @@ export default class Presentation extends React.Component {
           lang="bash"
           code={require('raw-loader!../assets/kt-styled-npm.sh')}
           ranges={[
-            { loc: [0, 6], title: 'Kotlin with style 💃' },
-            { loc: [2, 3] },
-            { loc: [4, 5] }
+            {loc: [0, 6], title: 'Kotlin with style 💃'},
+            {loc: [2, 3]},
+            {loc: [4, 5]}
           ]}/>
         <SexyCodeSlide
           bgColor={'primary'}
           lang="kotlin"
           code={require('raw-loader!../assets/styled.kt')}
           ranges={[
-            { loc: [0, 17], title: 'Kotlin with style 💃' },
-            { loc: [4, 5] },
-            { loc: [6, 7] },
-            { loc: [8, 9] },
-            { loc: [5, 12] },
-            { loc: [0, 3] }
+            {loc: [0, 17], title: 'Kotlin with style 💃'},
+            {loc: [4, 5]},
+            {loc: [6, 7]},
+            {loc: [8, 9]},
+            {loc: [5, 12]},
+            {loc: [0, 3]}
           ]}>
           <Notes>
             <p>La plupart des propriétés CSS sont supportés sinon possible ajout à la main <code>put("key",
@@ -456,12 +557,12 @@ export default class Presentation extends React.Component {
           lang="bash"
           code={require('raw-loader!../assets/firebase-hosting.sh')}
           ranges={[
-            { loc: [0, 14], title: 'Get Firebase working' },
-            { loc: [0, 3] },
-            { loc: [4, 5] },
-            { loc: [6, 7] },
-            { loc: [8, 9] },
-            { loc: [10, 11] }
+            {loc: [0, 14], title: 'Get Firebase working'},
+            {loc: [0, 3]},
+            {loc: [4, 5]},
+            {loc: [6, 7]},
+            {loc: [8, 9]},
+            {loc: [10, 11]}
           ]}/>
         <Slide>
           <Heading size={2} caps textColor="secondary">
