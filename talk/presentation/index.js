@@ -51,7 +51,7 @@ export default class Presentation extends React.Component {
     </Slide>);
 
     return (
-      <Deck transition={['fade']} transitionDuration={300} theme={theme}>
+      <Deck transition={['fade']} transitionDuration={300} theme={theme} progress={'bar'}>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Kotlin.js
@@ -89,9 +89,7 @@ export default class Presentation extends React.Component {
             <ListItem>Firebase function</ListItem>
             <ListItem>Kotlin.X HTML</ListItem>
             <ListItem>React</ListItem>
-            <ListItem>Js dependencies</ListItem>
             <ListItem>Coroutines</ListItem>
-            <ListItem>Kotlin CSS</ListItem>
             <ListItem>Firebase Hosting</ListItem>
           </List>
         </Slide>
@@ -306,6 +304,7 @@ export default class Presentation extends React.Component {
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="kotlin"
+          notes={'appendHTML est dans stream<br>head, html sont dans la DSL Kotlin HTML'}
           code={require('raw-loader!../assets/htmlx-example.kt')}
           ranges={[
             { loc: [0, 26], title: 'HTML.X' },
@@ -315,13 +314,8 @@ export default class Presentation extends React.Component {
             { loc: [5, 11], note: 'STYLE' },
             { loc: [13, 14], note: 'BODY' },
             { loc: [14, 22] }
-          ]}>
-          <Notes>
-            <p><code>appendHTML</code> fait partie de <code>stream</code></p>
-            <p><code>head</code> <code>html</code> font partie d'une <code>DSL</code> permettant d'écrire
-              du <code>HTML</code></p>
-          </Notes>
-        </WideSexyCodeSlide>
+          ]}/>
+        {demoSlide}
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             React?
@@ -372,18 +366,7 @@ export default class Presentation extends React.Component {
           ranges={[
             { loc: [0, 0], title: 'Functional component' },
             { loc: [0, 6] },
-            { loc: [7, 11], note: 'Empty content dummy component' }
-          ]}/>
-        <WideSexyCodeSlide
-          bgColor={'primary'}
-          lang="kotlin"
-          notes={'plus complexe, il y a un cycle de vie et les entrées (<code>props</code>) sont typées'}
-          code={require('raw-loader!../assets/react-class-component.kt')}
-          ranges={[
-            { loc: [0, 0], title: 'Class component' },
-            { loc: [0, 1], note: 'RProps & AppState' },
-            { loc: [1, 2], note: 'render()' },
-            { loc: [2, 10] }
+            { loc: [7, 11], note: 'empty content dummy component' }
           ]}/>
         <WideSexyCodeSlide
           bgColor={'primary'}
@@ -526,6 +509,81 @@ export default class Presentation extends React.Component {
             <ListItem>Clean async with coroutines</ListItem>
           </List>
         </Slide>
+        {demoSlide}
+        <Slide>
+          <Heading size={2} caps textColor="secondary">
+            What if I want to share my app to the 🌎?
+          </Heading>
+          <Heading textColor="tertiary" size={3}>
+            Hello World Firebase Hosting 🔥
+          </Heading>
+        </Slide>
+        <SexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          code={require('raw-loader!../assets/firebase-hosting.sh')}
+          ranges={[
+            { loc: [0, 0], title: 'Get Firebase working' },
+            { loc: [0, 3] },
+            { loc: [4, 5] },
+            { loc: [6, 7] },
+            { loc: [8, 9] },
+            { loc: [10, 11] }
+          ]}/>
+        <Slide>
+          <Heading size={2} caps textColor="secondary">
+            Let's code our next React app in Kotlin?
+          </Heading>
+        </Slide>
+        <Slide>
+          <Notes>
+            <p>Très jeune, beaucoup de changements</p>
+            <p>Pas encore de wrapper
+              pour <code>Jest</code>, <code>Enzyme</code>, <code>storybook</code>, <code>Sinon</code></p>
+            <p>Pas encore beaucoup de wrapper à part ceux de JetBrains</p>
+          </Notes>
+          <Heading size={2} caps textColor="secondary">
+            Well...
+          </Heading>
+          <Heading size={2} caps textColor="secondary">
+            no
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading size={2} caps textColor="secondary">
+            available wrappers
+          </Heading>
+          <List>
+            <ListItem>kotlin-css</ListItem>
+            <ListItem>kotlin-extensions</ListItem>
+            <ListItem>kotlin-mocha</ListItem>
+            <ListItem>kotlin-react</ListItem>
+            <ListItem>kotlin-react-dom</ListItem>
+            <ListItem>kotlin-react-redux</ListItem>
+            <ListItem>kotlin-react-router-dom</ListItem>
+            <ListItem>kotlin-redux</ListItem>
+            <ListItem>kotlin-styled</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={2} caps textColor="secondary">
+            Take away
+          </Heading>
+          <List>
+            <ListItem>github.com/JetBrains/create-react-kotlin-app</ListItem>
+            <ListItem>github.com/JetBrains/kotlin-wrappers</ListItem>
+            <ListItem>kotlinlang.org</ListItem>
+            <ListItem>kotlinlang.org/docs/reference/js-overview.html</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size={2} caps textColor="secondary">
+            Thank you!
+          </Heading>
+          <Heading size={3} textColor="tertiary">
+            Let's build our next React app in Kotlin?
+          </Heading>
+        </Slide>
         <Slide>
           <Heading size={2} caps textColor="secondary">
             Fits for prototyping?
@@ -603,81 +661,6 @@ export default class Presentation extends React.Component {
             { loc: [5, 12] },
             { loc: [0, 3] }
           ]}/>
-        {demoSlide}
-        <Slide>
-          <Heading size={2} caps textColor="secondary">
-            What if I want to share my app to the 🌎?
-          </Heading>
-          <Heading textColor="tertiary" size={3}>
-            Hello World Firebase Hosting 🔥
-          </Heading>
-        </Slide>
-        <SexyCodeSlide
-          bgColor={'primary'}
-          lang="bash"
-          code={require('raw-loader!../assets/firebase-hosting.sh')}
-          ranges={[
-            { loc: [0, 0], title: 'Get Firebase working' },
-            { loc: [0, 3] },
-            { loc: [4, 5] },
-            { loc: [6, 7] },
-            { loc: [8, 9] },
-            { loc: [10, 11] }
-          ]}/>
-        <Slide>
-          <Heading size={2} caps textColor="secondary">
-            Let's code our next React app in Kotlin?
-          </Heading>
-        </Slide>
-        <Slide>
-          <Notes>
-            <p>Très jeune, beaucoup de changements</p>
-            <p>Pas encore de wrapper
-              pour <code>Jest</code>, <code>Enzyme</code>, <code>storybook</code>, <code>Sinon</code></p>
-            <p>Pas encore beaucoup de wrapper à part ceux de JetBrains</p>
-          </Notes>
-          <Heading size={2} caps textColor="secondary">
-            Well...
-          </Heading>
-          <Heading size={2} caps textColor="secondary">
-            no
-          </Heading>
-        </Slide>
-        <Slide>
-          <Heading size={2} caps textColor="secondary">
-            available wrappers
-          </Heading>
-          <List>
-            <ListItem>kotlin-css</ListItem>
-            <ListItem>kotlin-extensions</ListItem>
-            <ListItem>kotlin-mocha</ListItem>
-            <ListItem>kotlin-react</ListItem>
-            <ListItem>kotlin-react-dom</ListItem>
-            <ListItem>kotlin-react-redux</ListItem>
-            <ListItem>kotlin-react-router-dom</ListItem>
-            <ListItem>kotlin-redux</ListItem>
-            <ListItem>kotlin-styled</ListItem>
-          </List>
-        </Slide>
-        <Slide>
-          <Heading size={2} caps textColor="secondary">
-            Take away
-          </Heading>
-          <List>
-            <ListItem>github.com/JetBrains/create-react-kotlin-app</ListItem>
-            <ListItem>github.com/JetBrains/kotlin-wrappers</ListItem>
-            <ListItem>kotlinlang.org</ListItem>
-            <ListItem>kotlinlang.org/docs/reference/js-overview.html</ListItem>
-          </List>
-        </Slide>
-        <Slide>
-          <Heading size={2} caps textColor="secondary">
-            Thank you!
-          </Heading>
-          <Heading size={3} textColor="tertiary">
-            Let's build our next React app in Kotlin?
-          </Heading>
-        </Slide>
       </Deck>
     );
   }
