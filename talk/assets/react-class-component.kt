@@ -1,4 +1,4 @@
-class App : RComponent<RProps, AppState>(), CoroutineScope {
+class App : RComponent<RProps, AppState>() {
     override fun RBuilder.render() {
         header("App-header") {
             logo()
@@ -8,7 +8,6 @@ class App : RComponent<RProps, AppState>(), CoroutineScope {
         alert(state.alert)
         div { textField("Event name", ::onInputChange) }
         eventList(state.events, state.prefix)
-        snackbar(state.alert, state.snackOpen, ::onSnackClose)
     }
 }
 

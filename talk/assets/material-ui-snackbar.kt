@@ -1,6 +1,7 @@
 @JsModule("@material-ui/core/Snackbar")
 private external val snackbarModule: dynamic
-private val uiSnackbar: RClass<SnackbarProps> = snackbarModule.default
+private val uiSnackbar: RClass<SnackbarProps> =
+  snackbarModule.default
 
 interface SnackbarProps : RProps {
   var message: String
@@ -20,7 +21,9 @@ class Snackbar : RComponent<SnackbarProps, RState>() {
   }
 }
 
-fun RBuilder.snackbar(message: String, open: Boolean, onClose: () -> Any) = child(Snackbar::class) {
+fun RBuilder.snackbar(message: String,
+                      open: Boolean,
+                      onClose: () -> Any) = child(Snackbar::class) {
   attrs.message = message
   attrs.open = open
   attrs.onClose = onClose

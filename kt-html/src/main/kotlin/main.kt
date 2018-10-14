@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     appendln("<!DOCTYPE html>")
     appendHTML().html {
       head {
-        link(href = "style.css", rel = LinkRel.stylesheet) { }
+        link(href = "style.css", rel = LinkRel.stylesheet)
         title { +"MdK 2018" }
         style {
           unsafe {

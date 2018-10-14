@@ -1,10 +1,11 @@
-fun RBuilder.alert(message: String = "") = if (message.isEmpty()) {
+fun RBuilder.alert(message: String = "") =
+  if (message.isEmpty()) {
     empty
-} else {
+  } else {
     div { +message }
-}
+  }
 
 @Suppress("ClassName")
 object empty : ReactElement {
-    override val props = object : RProps {}
+  override val props = object : RProps {}
 }

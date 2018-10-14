@@ -1,10 +1,13 @@
-class App : RComponent<RProps, AppState>(), CoroutineScope {
+class App : RComponent<RProps, RState>(),
+  CoroutineScope {
 
   override val coroutineContext by lazy { Job() }
 
   override fun componentDidMount() {
     launch {
-      setState { events = fetchEventsCoroutines() }
+      setState {
+        events = fetchEventsCoroutines()
+      }
     }
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import {CodePane, Deck, Fill, Heading, Image, Layout, List, ListItem, Notes, Slide, Text} from 'spectacle';
+import { Deck, Fill, Heading, Image, Layout, List, ListItem, Notes, Slide, Text } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 import createTheme from 'spectacle/lib/themes/default';
 
@@ -35,14 +35,7 @@ const SexyCodeSlide = styled(CodeSlide)`
 const WideSexyCodeSlide = styled(SexyCodeSlide)`
   max-width: 85vw;
   pre {
-    transform: translateY(-85px);
-  }
-`;
-
-const WideSlide = styled(Slide)`
-  max-width: 85vw;
-  pre {
-    border-radius: 3px;
+    transform: translateY(-14%);
   }
 `;
 
@@ -56,13 +49,6 @@ export default class Presentation extends React.Component {
         It's demo time! Yay!
       </Heading>
     </Slide>);
-
-    const codePan = (textSize, lang, source) =>
-      (<CodePane
-        textSize={textSize}
-        theme={'light'}
-        lang={lang}
-        source={source}/>);
 
     return (
       <Deck transition={['fade']} transitionDuration={300} theme={theme}>
@@ -165,17 +151,15 @@ export default class Presentation extends React.Component {
 
         <WideSexyCodeSlide
           bgColor={'primary'}
-          lang='groovy'
+          lang={'groovy'}
           code={require('raw-loader!../../kt-api/build.gradle')}
           ranges={[
-            {loc: [1, 2], title: 'build.gradle'},
-            {loc: [6, 9], title: 'build.gradle'},
-            {loc: [11, 12], title: 'build.gradle'},
-            {loc: [17, 21], title: 'build.gradle'},
-            {loc: [22, 28], title: 'build.gradle'}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [1, 2], title: 'build.gradle' },
+            { loc: [6, 9], title: 'build.gradle' },
+            { loc: [11, 12], title: 'build.gradle' },
+            { loc: [17, 21], title: 'build.gradle' },
+            { loc: [22, 28], title: 'build.gradle' }
+          ]}/>
 
         <Slide>
           <Heading textColor="secondary">What do we need?</Heading>
@@ -194,56 +178,46 @@ export default class Presentation extends React.Component {
           lang="kotlin"
           code={require('raw-loader!../assets/api-express-save.kt')}
           ranges={[
-            {loc: [0, 3], title: 'Firestore Wrappers'}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [0, 3], title: 'Firestore Wrappers' }
+          ]}/>
 
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="typescript"
           code={require('raw-loader!../../kt-api/node_modules/firebase-admin/lib/index.d.ts')}
           ranges={[
-            {loc: [57, 65], title: 'firebase-admin/index.d.ts'}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [57, 65], title: 'firebase-admin/index.d.ts' }
+          ]}/>
 
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="kotlin"
           code={require('raw-loader!../../kt-api/src/main/kotlin/com/firebase/wrapper/admin/Admin.kt')}
           ranges={[
-            {loc: [0, 15], title: 'Admin.kt'},
-            {loc: [6, 7], title: 'Admin.kt'},
-            {loc: [12, 13]}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [0, 15], title: 'Admin.kt' },
+            { loc: [6, 7], title: 'Admin.kt' },
+            { loc: [12, 13] }
+          ]}/>
 
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="kotlin"
           code={require('raw-loader!../../kt-api/src/main/kotlin/com/firebase/wrapper/admin/firestore/Firestore.kt')}
           ranges={[
-            {loc: [0, 6], title: 'Firestore.kt'}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [0, 6], title: 'Firestore.kt' }
+          ]}/>
 
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="javascript"
           code={require('raw-loader!../../kt-api/functions/index.js')}
           ranges={[
-            {loc: [575, 576], title: 'kt-api/index.js'}
-          ]}
-        >
-        </WideSexyCodeSlide>
+            { loc: [575, 576], title: 'kt-api/index.js' }
+          ]}/>
 
         <Slide>
-          <Heading textColor='secondary'>Keywords</Heading>
-          <List textColor='tertiary'>
+          <Heading textColor="secondary">Keywords</Heading>
+          <List textColor="tertiary">
             <ListItem><strong>dynamic</strong> references a dynamic type in Kotlin/JS code</ListItem>
             <ListItem><strong>external</strong> marks a declaration as implemented not in Kotlin (accessible through JNI
               or in JavaScript)</ListItem>
@@ -268,37 +242,35 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <WideSexyCodeSlide bgColor={'primary'}
-                           lang='kotlin' code={require('raw-loader!../assets/api-express.kt')}
-                           ranges={[
-                             {loc: [0, 2], title: 'index.kt'},
-                             {loc: [8, 12], title: 'index.kt'},
-                           ]}
-        >
-        </WideSexyCodeSlide>
-        <WideSexyCodeSlide bgColor={'primary'}
-                           lang='kotlin'
-                           code={require('raw-loader!../assets/api-express-dataclass.kt')}
-                           ranges={[
-                             {loc: [0, 1], title: 'EventInput'},
-                             {loc: [1, 2], title: 'Event'},
-                             {loc: [2, 3], title: 'Params'},
-                             {loc: [3, 4], title: 'Message'},
-                           ]}>
-        </WideSexyCodeSlide>
-        <WideSexyCodeSlide bgColor={'primary'}
-                           lang='kotlin'
-                           code={require('raw-loader!../assets/api-express-create.kt')}
-                           ranges={[
-                             {loc: [0, 23], title: 'CreateEvent'},
-                             {loc: [2, 9], title: 'CreateEvent'},
-                             {loc: [9, 10], title: 'CreateEvent'},
-                             {loc: [9, 19], title: 'CreateEvent'},
-                             {loc: [20, 21], title: 'CreateEvent'},
-                           ]
-                           }
-        >
-        </WideSexyCodeSlide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin" code={require('raw-loader!../assets/api-express.kt')}
+          ranges={[
+            { loc: [0, 2], title: 'index.kt' },
+            { loc: [8, 12], title: 'index.kt' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/api-express-dataclass.kt')}
+          ranges={[
+            { loc: [0, 1], title: 'EventInput' },
+            { loc: [1, 2], title: 'Event' },
+            { loc: [2, 3], title: 'Params' },
+            { loc: [3, 4], title: 'Message' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/api-express-create.kt')}
+          ranges={[
+            { loc: [0, 23], title: 'CreateEvent' },
+            { loc: [2, 9], title: 'CreateEvent' },
+            { loc: [9, 10], title: 'CreateEvent' },
+            { loc: [9, 19], title: 'CreateEvent' },
+            { loc: [20, 21], title: 'CreateEvent' }
+          ]
+          }/>
         {demoSlide}
         <Slide>
           <Heading size={3} textColor="secondary">Can I do frontend also with Kotlin?</Heading>
@@ -310,29 +282,36 @@ export default class Presentation extends React.Component {
         <Slide maxHeight={100} maxWidth={100}>
           <Heading>Kotlinx.html</Heading>
         </Slide>
-        <WideSlide bgColor={'secondary'}>
-          <Heading margin={50} size={3} textColor="primary">Gradle</Heading>
-          {codePan(24, 'groovy', require('raw-loader!../assets/htmlx-gradle-example.gradle'))}
-        </WideSlide>
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang="groovy"
           code={require('raw-loader!../assets/htmlx-gradle-example.gradle')}
           ranges={[
-            {loc: [0, 10], title: 'Gradle'},
-            {loc: [5, 7]},
-            {loc: [7, 8]},
-            {loc: [0, 4]}
+            { loc: [0, 10], title: 'Gradle' },
+            { loc: [5, 7], note: 'stdlib' },
+            { loc: [7, 8], note: 'kotlinx-html' },
+            { loc: [0, 4] }
           ]}/>
-        <Slide bgColor={'secondary'}>
-          {codePan(17, 'kotlin', require('raw-loader!../assets/htmlx-example.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/htmlx-example.kt')}
+          ranges={[
+            { loc: [0, 26], title: 'HTML.X' },
+            { loc: [0, 1], note: 'String builder' },
+            { loc: [1, 2], note: 'HTML appender' },
+            { loc: [2, 5], note: 'HEAD' },
+            { loc: [5, 11], note: 'STYLE' },
+            { loc: [13, 14], note: 'BODY' },
+            { loc: [14, 22] }
+          ]}>
+          <Notes>
+            <p><code>appendHTML</code> fait partie de <code>stream</code></p>
+            <p><code>head</code> <code>html</code> font partie d'une <code>DSL</code> permettant d'écrire
+              du <code>HTML</code></p>
+          </Notes>
+        </WideSexyCodeSlide>
         {demoSlide}
-        <Slide>
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            TODO: caption of app
-          </Heading>
-        </Slide>
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             React?
@@ -341,19 +320,33 @@ export default class Presentation extends React.Component {
             Create React Kotlin App
           </Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          {codePan(24, 'bash', require('raw-loader!../assets/kt-react-setup.sh'))}
+        <Slide>
+          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
+            TODO: caption of app
+          </Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <ol>
-              <li>Close to JavaScript React code</li>
-              <li>JSX replaced by DSL</li>
-              <li>Because it's React: 3 types of components</li>
-            </ol>
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/react-app.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          notes={'npx node > 5.2<br>JDK 8 only<br>react 16<br>react-dom<br>react-scripts-kotlin'}
+          code={require('raw-loader!../assets/kt-react-setup.sh')}
+          ranges={[
+            { loc: [0, 11], title: 'Setup' },
+            { loc: [2, 3], note: 'Node.js scripts to bootstrap app' },
+            { loc: [7, 9], note: 'Run app 🚀' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'close to React JS code<br>JSX vs DSL<br>3 types de composants (comme en React)'}
+          code={require('raw-loader!../assets/react-app.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'React component' },
+            { loc: [0, 1], note: 'extend RComponent with RProps and RState' },
+            { loc: [1, 2], note: 'familiar render() method' },
+            { loc: [2, 10], note: 'kotlinx.html DSL' },
+            { loc: [13, 14], note: 'make component available' }
+          ]}/>
         <Slide>
           <List ordered>
             <ListItem>Functional components</ListItem>
@@ -361,25 +354,44 @@ export default class Presentation extends React.Component {
             <ListItem>Stateful (-class) components</ListItem>
           </List>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            Functional components: simple et rapide à mettre en oeuvre, il n'y a que <code>render()</code>
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/react-functional-component.kt'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            Class components: plus complexe, il y a un cycle de vie et les entrées (<code>props</code>) sont
-            typées
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/react-class-component.kt'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            Stateful components: garde un état (champ texte, etc.)
-          </Notes>
-          {codePan(18, 'kotlin', require('raw-loader!../assets/react-stateful-component.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'simple et rapide à coder, render() only'}
+          code={require('raw-loader!../assets/react-functional-component.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Functional component' },
+            { loc: [0, 6] },
+            { loc: [7, 11], note: 'Empty content dummy component' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'plus complexe, il y a un cycle de vie et les entrées (<code>props</code>) sont typées'}
+          code={require('raw-loader!../assets/react-class-component.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Class component' },
+            { loc: [0, 1], note: 'RProps & AppState' },
+            { loc: [1, 2], note: 'render()' },
+            { loc: [2, 10] }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'garde un état (champ texte, etc.)'}
+          code={require('raw-loader!../assets/react-stateful-component.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Stateful component' },
+            { loc: [0, 3], note: 'Typed props (RProps)' },
+            { loc: [4, 7], note: 'Typed state (RState)' },
+            { loc: [8, 10] },
+            { loc: [13, 14] },
+            { loc: [14, 15] },
+            { loc: [10, 18], note: 'Use state and method' },
+            { loc: [21, 22] },
+            { loc: [22, 23] },
+            { loc: [19, 25], note: 'Mutate state and use props' }
+          ]}/>
         <Slide>
           <Notes>
             <p>Possible d'importer la bibliothèque dans <code>index.html</code> puis de l'utiliser en globale.</p>
@@ -393,39 +405,63 @@ export default class Presentation extends React.Component {
             How to consume an API with <code>Axios</code>
           </Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          {codePan(24, 'bash', require('raw-loader!../assets/axios-npm.sh'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <p><code>dynamic</code> est utilisé pour permettre l'ajout de bibliothèques externes pas typées</p>
-            <p>Quel intérêt d'utiliser des bibliothèques pas typées si on utilise Kotlin ?</p>
-            <p>Possible de faire un interface à la main</p>
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/axios-dynamic.kt'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <p>Possible à la main, un peu long et laborieux, quelque chose de mieux ?</p>
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/axios-interface.kt'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <p>Production d'un fichier Kotlin de typage d'Axios à partir du typage TypeScript</p>
-            <p>Quelques problèmes</p>
-            <ol>
-              <li>Renommer le fichier en Axios.kt</li>
-              <li>Ajout du @JsModule</li>
-              <li>Suppression de default pas nécessaire</li>
-              <li>Collision entre la classe Error JavaScript et Kotlin, utilisation d'une définition externe</li>
-            </ol>
-          </Notes>
-          {codePan(24, 'bash', require('raw-loader!../assets/axios-ts2kt.sh'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          {codePan(24, 'kotlin', require('raw-loader!../assets/axios-types.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'garde un état (champ texte, etc.)'}
+          code={require('raw-loader!../assets/axios-npm.sh')}
+          ranges={[
+            { loc: [0, 0], title: 'Axios' },
+            { loc: [2, 3], note: 'Dependency' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'dynamic ajout de bibliothèque externes sans type<br>why?<br>interface à la main'}
+          code={require('raw-loader!../assets/axios-dynamic.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Axios' },
+            { loc: [0, 1], note: '@JsModule' },
+            { loc: [1, 2], note: 'No typing 😭' },
+            { loc: [8, 9], note: 'componentDidMount' },
+            { loc: [9, 10], note: 'fetch data' },
+            { loc: [10, 13], note: 'update state' },
+            { loc: [13, 15], note: 'catch error' },
+            { loc: [3, 6], note: 'state' },
+            { loc: [7, 18] }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'à la main, long, laborieux...'}
+          code={require('raw-loader!../assets/axios-interface.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Axios typed, manually' },
+            { loc: [1, 2] },
+            { loc: [10, 14], note: '⚠️ definedExternally' },
+            { loc: [7, 9] },
+            { loc: [3, 6] }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          notes={'ts2kt<br>génère un fichier Kotlin à partir d\'une définition TS<br><ol><li>renommer</li><li>ajout @JsModule</li><li>Suppression default</li><li>Error vs Kotlin Error</li></ol>'}
+          code={require('raw-loader!../assets/axios-ts2kt.sh')}
+          ranges={[
+            { loc: [0, 0], title: 'Axios typed, using ts2kt' },
+            { loc: [2, 3], note: 'ts2kt v0.1.3' }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          code={require('raw-loader!../assets/axios-types.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Axios typed, using ts2kt' },
+            { loc: [17, 19] },
+            { loc: [2, 3] },
+            { loc: [3, 4] },
+            { loc: [0, 1] }
+          ]}/>
         <Slide>
           <Heading size={2} caps textColor="secondary">
             Promise syntax in Kotlin in 2018? 😱
@@ -449,19 +485,30 @@ export default class Presentation extends React.Component {
             Asynchronous programming
           </Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>>
-          {codePan(24, 'bash', require('raw-loader!../assets/coroutine-npm.sh'))}
-        </Slide>
-        <Slide>
-          <Notes>
-            <p><code>await()</code> est donné par la bibliothèque coroutines</p>
-            <p>plus besoin de s'occuper du <code>then()</code> et du <code>catch()</code></p>
-            <p>la méthode retourne directement le résultat (pas comme en JavaScript une Promise)</p>
-            <p>le scope <code>CoroutineScope</code> permet de créer un scope au composant, job regroupe les coroutines
-              en exécution</p>
-          </Notes>
-          {codePan(22, 'kotlin', require('raw-loader!../assets/coroutine-axios.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          code={require('raw-loader!../assets/coroutine-npm.sh')}
+          ranges={[
+            { loc: [0, 0], title: 'Coroutines' },
+            { loc: [2, 3] }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'launch builder coroutine + context<br>pas de then() ou catch()<br>pas de promise, directement le résultat<br>job regroupe les coroutines du scope'}
+          code={require('raw-loader!../assets/coroutine-axios.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Coroutines' },
+            { loc: [0, 2], note: 'scope' },
+            { loc: [6, 7] },
+            { loc: [5, 12] },
+            { loc: [17, 18], note: 'suspend' },
+            { loc: [17, 19], note: 'await' },
+            { loc: [3, 4], note: 'job' },
+            { loc: [14, 15] },
+            { loc: [13, 16] }
+          ]}/>
         <Slide>
           <List>
             <ListItem>React in Kotlin</ListItem>
@@ -477,20 +524,31 @@ export default class Presentation extends React.Component {
             Only if material-ui works, does it?
           </Heading>
         </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <p>Difficile de faire fonctionner <code>ts2kt</code> le code produit est incomplet</p>
-            <p>Il va falloir le faire à la main</p>
-          </Notes>
-          {codePan(24, 'bash', require('raw-loader!../assets/material-ui-npm.sh'))}
-        </Slide>
-        <Slide bgColor={'secondary'}>
-          <Notes>
-            <p>Obliger de redéfinir les <code>props</code> pour avoir la complétion.</p>
-            <p>⚠️ Import du module pour récupération du component (défaut)</p>
-          </Notes>
-          {codePan(20, 'kotlin', require('raw-loader!../assets/material-ui-snackbar.kt'))}
-        </Slide>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="bash"
+          notes={'no ts2kt code incomplet, wrapper open source en dev, à la main'}
+          code={require('raw-loader!../assets/material-ui-npm.sh')}
+          ranges={[
+            { loc: [0, 0], title: 'material-ui' },
+            { loc: [2, 3] }
+          ]}/>
+        <WideSexyCodeSlide
+          bgColor={'primary'}
+          lang="kotlin"
+          notes={'définition des props, import du module et du composant par défaut'}
+          code={require('raw-loader!../assets/material-ui-snackbar.kt')}
+          ranges={[
+            { loc: [0, 0], title: 'Snackbar' },
+            { loc: [0, 1], note: 'JsModule' },
+            { loc: [0, 2], note: 'module' },
+            { loc: [2, 4], note: 'default export' },
+            { loc: [5, 10], note: 'props' },
+            { loc: [11, 12], note: 'class component' },
+            { loc: [13, 20], note: 'use imported component' },
+            { loc: [23, 26] },
+            { loc: [26, 29] }
+          ]}/>
         <Slide>
           <Heading size={2} caps textColor="secondary">
             Can I write CSS the kotlin way?
@@ -518,31 +576,23 @@ export default class Presentation extends React.Component {
           lang="bash"
           code={require('raw-loader!../assets/kt-styled-npm.sh')}
           ranges={[
-            {loc: [0, 6], title: 'Kotlin with style 💃'},
-            {loc: [2, 3]},
-            {loc: [4, 5]}
+            { loc: [0, 0], title: 'Kotlin with style 💃' },
+            { loc: [2, 3] },
+            { loc: [4, 5] }
           ]}/>
         <SexyCodeSlide
           bgColor={'primary'}
           lang="kotlin"
+          notes={'la plupart des props CSS existent, sinon ajout à la main put("key","val")<br>possible créer feuille de style et ainsi utiliser :hover<br>'}
           code={require('raw-loader!../assets/styled.kt')}
           ranges={[
-            {loc: [0, 17], title: 'Kotlin with style 💃'},
-            {loc: [4, 5]},
-            {loc: [6, 7]},
-            {loc: [8, 9]},
-            {loc: [5, 12]},
-            {loc: [0, 3]}
-          ]}>
-          <Notes>
-            <p>La plupart des propriétés CSS sont supportés sinon possible ajout à la main <code>put("key",
-              "val")</code>
-            </p>
-            <p>Possibilité de créer des feuilles de style en Kotlin et ainsi utiliser des sélecteurs <code>hover,
-              etc.</code></p>
-          </Notes>
-          {/*{codePan(24, 'kotlin', require('raw-loader!../assets/styled.kt'))}*/}
-        </SexyCodeSlide>
+            { loc: [0, 0], title: 'Kotlin with style 💃' },
+            { loc: [4, 5] },
+            { loc: [6, 7] },
+            { loc: [8, 9] },
+            { loc: [5, 12] },
+            { loc: [0, 3] }
+          ]}/>
         {demoSlide}
         <Slide>
           <Heading size={2} caps textColor="secondary">
@@ -557,12 +607,12 @@ export default class Presentation extends React.Component {
           lang="bash"
           code={require('raw-loader!../assets/firebase-hosting.sh')}
           ranges={[
-            {loc: [0, 14], title: 'Get Firebase working'},
-            {loc: [0, 3]},
-            {loc: [4, 5]},
-            {loc: [6, 7]},
-            {loc: [8, 9]},
-            {loc: [10, 11]}
+            { loc: [0, 0], title: 'Get Firebase working' },
+            { loc: [0, 3] },
+            { loc: [4, 5] },
+            { loc: [6, 7] },
+            { loc: [8, 9] },
+            { loc: [10, 11] }
           ]}/>
         <Slide>
           <Heading size={2} caps textColor="secondary">
@@ -585,7 +635,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading size={2} caps textColor="secondary">
-            Current available wrappers
+            available wrappers
           </Heading>
           <List>
             <ListItem>kotlin-css</ListItem>

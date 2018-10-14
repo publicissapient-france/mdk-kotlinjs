@@ -1,14 +1,14 @@
 buildString {
   appendHTML().html {
     head {
-      link(href = "style.css", rel = LinkRel.stylesheet) { }
+      link(href="style.css", rel=LinkRel.stylesheet)
       title { +"MdK 2018" }
       style {
         raw("""
-                        header {
-                            height: 50px;
-                        }
-                    """.trimIndent())
+        header {
+          height: 50px;
+        }
+        """)
       }
     }
     body {
