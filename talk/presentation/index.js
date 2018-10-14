@@ -84,6 +84,18 @@ export default class Presentation extends React.Component {
           />
         </Slide>
         <Slide>
+          <Heading size={1} caps textColor={'secondary'}>Agenda</Heading>
+          <List>
+            <ListItem>Firebase function</ListItem>
+            <ListItem>Kotlin.X HTML</ListItem>
+            <ListItem>React</ListItem>
+            <ListItem>Js dependencies</ListItem>
+            <ListItem>Coroutines</ListItem>
+            <ListItem>Kotlin CSS</ListItem>
+            <ListItem>Firebase Hosting</ListItem>
+          </List>
+        </Slide>
+        <Slide>
           <Heading size={1} textColor="secondary">Kotlin & Kotlin.js</Heading>
           <Heading size={3} textColor="tertiary">Where does it come from?</Heading>
         </Slide>
@@ -91,8 +103,7 @@ export default class Presentation extends React.Component {
           bgImage="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/JetBrains_Logo_2016.svg/1200px-JetBrains_Logo_2016.svg.png"
           bgRepeat="no-repeat"
           bgDarken=".9"
-          bgSize="contain"
-        >
+          bgSize="contain">
           <List textColor="primary">
             <ListItem>Created in <b>2011</b></ListItem>
             <ListItem>Open sourced in <b>2012</b></ListItem>
@@ -311,7 +322,6 @@ export default class Presentation extends React.Component {
               du <code>HTML</code></p>
           </Notes>
         </WideSexyCodeSlide>
-        {demoSlide}
         <Slide>
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             React?
@@ -331,7 +341,7 @@ export default class Presentation extends React.Component {
           notes={'npx node > 5.2<br>JDK 8 only<br>react 16<br>react-dom<br>react-scripts-kotlin'}
           code={require('raw-loader!../assets/kt-react-setup.sh')}
           ranges={[
-            { loc: [0, 11], title: 'Setup' },
+            { loc: [0, 0], title: 'Setup' },
             { loc: [2, 3], note: 'Node.js scripts to bootstrap app' },
             { loc: [7, 9], note: 'Run app 🚀' }
           ]}/>
@@ -664,7 +674,7 @@ export default class Presentation extends React.Component {
           <Heading size={2} caps textColor="secondary">
             Thank you!
           </Heading>
-          <Heading size={2} caps textColor="secondary">
+          <Heading size={3} textColor="tertiary">
             Let's build our next React app in Kotlin?
           </Heading>
         </Slide>
