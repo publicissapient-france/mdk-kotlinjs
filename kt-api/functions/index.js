@@ -1,6 +1,5 @@
 (function (_, Kotlin, $module$express, $module$cors, $module$firebase_admin, $module$firebase_functions) {
   'use strict';
-  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var ensureNotNull = Kotlin.ensureNotNull;
   var throwCCE = Kotlin.throwCCE;
   var Unit = Kotlin.kotlin.Unit;
@@ -548,7 +547,6 @@
   FileMetaData.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.contentType, other.contentType) && Kotlin.equals(this.metadata, other.metadata) && Kotlin.equals(this.cacheControl, other.cacheControl)))));
   };
-  // $$importsForInline$$.index = _;
   var package$com = _.com || (_.com = {});
   var package$api = package$com.api || (package$com.api = {});
   var package$event = package$api.event || (package$api.event = {});

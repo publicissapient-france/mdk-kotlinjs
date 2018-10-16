@@ -7,8 +7,8 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
-    "cli:event:create": "curl -X PUT https://us-central1-fir-mdk-20181005.cloudfunctions.net/v1/event -H 'Content-Type: application/x-www-form-urlencoded' -d 'label=xebicon' -d 'date=2018-11-19T23:00:00.000Z' -d 'image=https://xebicon.fr/wp-content/uploads/2018/06/logo-head.png'",
-    "cli:event:list": "curl https://us-central1-fir-mdk-20181005.cloudfunctions.net/v1/event --silent | jq",
+    "cli:event:create": "curl -X PUT https://us-central1-fir-mdk-5.cloudfunctions.net/v1/event -H 'Content-Type: application/x-www-form-urlencoded' -d 'label=xebicon' -d 'date=2018-11-19T23:00:00.000Z' -d 'image=https://xebicon.fr/wp-content/uploads/2018/06/logo-head.png'",
+    "cli:event:list": "curl https://us-central1-fir-mdk-5.cloudfunctions.net/v1/event --silent | jq",
     "delete-invalid-line": "sed -i '/importsForInline/d' ./functions/index.js",
     "set-project": "firebase use --add"
   },

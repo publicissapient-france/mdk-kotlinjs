@@ -12,6 +12,7 @@ import com.firebase.wrapper.admin.firestore.FireStoreSettings
 import com.firebase.wrapper.functions.Functions
 import kotlin.js.Date
 
+
 external val exports: dynamic
 
 // -- Database CRUD --
@@ -75,7 +76,7 @@ fun main(args: Array<String>) {
     app.get("/event/:id?", getEvents)
     app.put("/event", createEvent)
 
-    exports.v1 = Functions.https.onRequest(app)
+  exports.v1 = Functions.https.onRequest(app)
 }
 
 data class EventInput(val label: String, val date: String, val image: String)
