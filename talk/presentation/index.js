@@ -167,7 +167,7 @@ export default class Presentation extends React.Component {
             {loc: [6, 9], title: 'build.gradle'},
             {loc: [11, 12], title: 'build.gradle'},
             {loc: [17, 21], title: 'build.gradle'},
-            {loc: [22, 28], title: 'build.gradle'}
+            {loc: [21, 26], title: 'build.gradle'}
           ]}/>
 
         <Slide>
@@ -221,7 +221,7 @@ export default class Presentation extends React.Component {
           lang="javascript"
           code={require('raw-loader!../../kt-api/functions/index.js')}
           ranges={[
-            {loc: [575, 576], title: 'kt-api/index.js'}
+            {loc: [573, 574], title: 'kt-api/functions/index.js'}
           ]}/>
 
         <Slide>
@@ -281,10 +281,12 @@ export default class Presentation extends React.Component {
           ]
           }/>
         {demoSlide}
-        <Slide>
-          <Image src={'./images/demo1.png'}
-          />
-        </Slide>
+        <Slide><Image width={'1920'} src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo1.png'}/></Slide>
+        <Slide><Image src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo2.png'}/></Slide>
+        <Slide><Image src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo3.png'}/></Slide>
+        <Slide><Image src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo4.png'}/></Slide>
+        <Slide><Image src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo5.png'}/></Slide>
+        <Slide><Image src={'https://raw.githubusercontent.com/xebia-france/mdk-kotlinjs/master/talk/assets/images/demo6.png'}/></Slide>
         <WideSexyCodeSlide
           bgColor={'primary'}
           lang={'bash'}
