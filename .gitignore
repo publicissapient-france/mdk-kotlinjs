@@ -1,2 +1,6 @@
 .idea/
 index.html
+.gradle/
+node_modules/
+*.iml
+out/
